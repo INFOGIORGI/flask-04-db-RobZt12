@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<h1>Qui trovi i nostri prodotti!</h1>
+<table>
+    <tr>
+        <th>ProductId</th>
+        <th>ProductName</th>
+        <th>SupllierId</th>
+        <th>CategoryId</th>
+        <th>Unit</th>
+        <th>Price</th>
+    </tr>
+    {% for i in miao%}
+    <tr>
+        <td>{{i[0]}}</td>
+        <td>{{i[1]}}</td>
+        <td>{{i[2]}}</td>
+    <td><a href = "{{ url_for('categories',catID = i[3]) }}">{{i[3]}}</a></td>
+        <td>{{i[4]}}</td>
+        <td>{{i[5]}}</td>
+    </tr>
+    {%endfor%}
+</table>
+{% endblock %}
