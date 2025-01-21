@@ -1,19 +1,21 @@
-{% extends "base.html" %}
-
-{% block content %}
-<h1>CategoryID {{catID}}</h1>
+{%extends 'base.html'%}
+{%block navbar%}
+<ul>
+    <li><a href = "{{url_for('homepage')}}">Home</a></li>
+    <li><a href = "{{url_for('prodotti')}}">Prodotti</a></li>
+</ul>
+{%endblock%}
+{%block content%}
 <table>
-   
     <tr>
         <th>CategoryName</th>
         <th>Description</th>
     </tr>
-    {% for i in miao2%}
+    {%for c in categorie%}
     <tr>
-        <td>{{i[1]}}</td>
-        <td>{{i[2]}}</td>
+        <td>{{c[1]}}</td>
+        <td>{{c[2]}}</td>
     </tr>
-    {%endfor%}
+{%endfor%}
 </table>
-
-{% endblock %}
+{%endblock%}

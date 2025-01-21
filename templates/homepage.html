@@ -1,5 +1,10 @@
-{% extends "base.html" %}
-
-{% block content %}
-<h1>Benvenuto nella Home Page!</h1>
-{% endblock %}
+{%extends 'base.html'%}
+{%block navbar%}
+<ul>
+    <li><a href = "{{url_for('homepage')}}">Homepage</a></li>
+    <li><a href = "{{url_for('prodotti')}}">Prodotti</a></li>
+</ul>
+{%endblock%}
+{%block content%}
+<h1>Questa e' la home</h1>
+{%endblock%}

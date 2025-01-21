@@ -1,26 +1,22 @@
-{% extends "base.html" %}
-
-
-{% block content %}
-<h1>Qui trovi i nostri prodotti!</h1>
+{%extends 'base.html'%}
+{%block navbar%}
+<ul>
+    <li><a href = "{{url_for('homepage')}}">Home</a></li>
+    <li><a href = "{{url_for('prodotti')}}">Prodotti</a></li>
+</ul>
+{%endblock%}
+{%block content%}
 <table>
+    <tr><td>ProductId</td><td>ProductName</td><td>SupplierID</td><td>CategoryID</td><td>Unit</td><td>Price</td></tr>
+    {% for p in prodotti%}
     <tr>
-        <th>ProductId</th>
-        <th>ProductName</th>
-        <th>SupllierId</th>
-        <th>CategoryId</th>
-        <th>Unit</th>
-        <th>Price</th>
+        <td>{{p[0]}}</td>
+        <td>{{p[1]}}</td>
+        <td>{{p[2]}}</td>
+        <td><a href ="{{url_for('categories', CatId=p[3])}}">{{p[3]}}</a></td>
+        <td>{{p[4]}}</td>
+        <td>{{p[5]}}</td>
     </tr>
-    {% for i in miao%}
-    <tr>
-        <td>{{i[0]}}</td>
-        <td>{{i[1]}}</td>
-        <td>{{i[2]}}</td>
-    <td><a href = "{{ url_for('categories',catID = i[3]) }}">{{i[3]}}</a></td>
-        <td>{{i[4]}}</td>
-        <td>{{i[5]}}</td>
-    </tr>
+    </table>
     {%endfor%}
-</table>
-{% endblock %}
+{%endblock%}
